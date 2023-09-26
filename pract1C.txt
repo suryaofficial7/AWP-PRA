@@ -1,0 +1,73 @@
+Certainly, I'll explain the key aspects of your C# console application that stores and displays student information:
+
+1. **Namespace**: You're using the `ArrayofStructs` namespace for your program.
+
+2. **Struct Definition**:
+   - You define a `struct` named `Student` to represent the student's information.
+   - This `struct` contains fields for `studid` (Student ID), `name` (Student Name), `cname` (Course Name), `day`, `month`, and `year` (Date of Birth).
+
+3. **Main Method**:
+   - Your `Main` method is the entry point of the application.
+   - You create an array of `Student` structs with a size of 5 to store student information.
+
+4. **Data Input**:
+   - You use a `for` loop to iterate over the array of `Student` structs (up to 2 times in your current code, which can be changed to 5 as per your array size).
+   - Inside the loop, you prompt the user to input the student's information, including ID, name, course name, and date of birth (day, month, year).
+   - The user inputs are stored in the corresponding fields of the `Student` struct within the array.
+
+5. **Data Display**:
+   - After gathering information for all students, you iterate through the array again to display the stored student data.
+   - For each student, you print their ID, name, course name, and date of birth in the specified format.
+
+6. **Additional Input**:
+   - You have a line `s[i].studid = Console.ReadLine();` outside the loop, which seems unnecessary and may lead to issues. You can safely remove it.
+
+Here's the modified code with the unnecessary line removed:
+
+```csharp
+using System;
+
+namespace ArrayOfStructs
+{
+    class Program
+    {
+        struct Student
+        {
+            public string studid, name, cname;
+            public int day, month, year;
+        }
+
+        static void Main(string[] args)
+        {
+            Student[] s = new Student[5];
+            int i;
+            for (i = 0; i < 5; i++) // Changed loop limit to 5
+            {
+                Console.Write("Enter Student Id:");
+                s[i].studid = Console.ReadLine();
+                Console.Write("Enter Student name : ");
+                s[i].name = Console.ReadLine();
+                Console.Write("Enter Course name : ");
+                s[i].cname = Console.ReadLine();
+                Console.Write("Enter date of birth\n Enter day(1-31):");
+                s[i].day = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter month(1-12):");
+                s[i].month = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter year:");
+                s[i].year = Convert.ToInt32(Console.ReadLine());
+            }
+
+            Console.WriteLine("\n\nStudent's List\n");
+            for (i = 0; i < 5; i++) // Changed loop limit to 5
+            {
+                Console.WriteLine("\nStudent ID : " + s[i].studid);
+                Console.WriteLine("\nStudent name : " + s[i].name);
+                Console.WriteLine("\nCourse name : " + s[i].cname);
+                Console.WriteLine("\nDate of birth(dd-mm-yy) : " + s[i].day + "-" + s[i].month + "-" + s[i].year);
+            }
+        }
+    }
+}
+```
+
+With these modifications, your code should correctly collect and display information for up to 5 students.
