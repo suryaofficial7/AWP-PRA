@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+
+    class factorialClass
+    {
+
+        public  void fact(int val) {
+            int factVal =1;
+            for (int i = 1; i <= val; i++)
+            {
+                factVal = factVal * i;  
+            }
+         
+            Console.Write("Factorial  is: " + factVal);
+        }
+    
+    }
+    internal class Program
+    {
+
+        
+        static void Main(string[] args)
+        {
+            factorialClass fc = new factorialClass();
+            Console.WriteLine("Enter the number to check factorial  :");
+            int val = Convert.ToInt32(Console.ReadLine());
+            fc.fact(val);
+
+        Console.ReadLine(); 
+
+
+    }
+}
